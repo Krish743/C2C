@@ -1,0 +1,49 @@
+Department of Artificial Intelligence and Machine Learning (AIML)
+L.D. College of Engineering, Ahmedabad
+
+Overview:
+The Department of Artificial Intelligence and Machine Learning (AIML) was established in 2020 with the vision of developing engineers capable of building intelligent systems that solve real-world problems. The department focuses on core areas such as data science, deep learning, computer vision, natural language processing, and reinforcement learning.
+
+Vision:
+To become a center of excellence in Artificial Intelligence and Machine Learning education, research, and innovation.
+
+Mission:
+1. To impart strong theoretical and practical knowledge of AI and ML.
+2. To foster innovation and research culture among students.
+3. To collaborate with industry and research organizations.
+4. To develop ethical engineers for societal benefit.
+
+Programs Offered:
+- B.Tech in Artificial Intelligence and Machine Learning (4 years)
+- Minor in Artificial Intelligence for other branches
+
+Intake Capacity:
+B.Tech (AIML) – 60 students per year
+
+Laboratories:
+1. Machine Learning Lab – Equipped with high-performance GPU systems for training deep learning models.
+2. Data Science Lab – Contains software like TensorFlow, PyTorch, and JupyterLab.
+3. Computer Vision Lab – Used for projects related to image processing and robotics.
+
+Faculty:
+The department has 10 faculty members, including 3 Ph.D. holders specializing in AI and Data Analytics. Faculty members are actively involved in publishing research papers and guiding student projects in collaboration with industry partners.
+
+Research Areas:
+- Natural Language Processing (NLP)
+- Computer Vision
+- Reinforcement Learning
+- Explainable AI
+- AI for Healthcare
+
+Student Activities:
+The department organizes regular hackathons, workshops, and seminars on trending technologies. The “AI Club” encourages students to participate in competitions like Smart India Hackathon, Kaggle challenges, and IEEE events.
+
+Placements:
+Students of AIML have been placed in top companies like TCS, Infosys, ZS Associates, and Deloitte. Average placement package is around 6 LPA, with the highest package being 18 LPA.
+
+Contact Information:
+Head of Department – Dr. Priya Shah
+Email: hod.aiml@ldce.ac.in
+Phone: +91 79 2630 2887
+Office: Room No. 410, 4th Floor, New Building
+Website: https://ldce.ac.in/aiml-department

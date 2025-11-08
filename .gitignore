@@ -1,0 +1,9 @@
+.env
+.venv/
+__pycache__/
+chroma_db/
+o_chroma_db/
+*.sqlite3
+o_app.py
+o_requirements.txt
+scrape.py

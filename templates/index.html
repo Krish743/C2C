@@ -1,0 +1,1121 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Campus Sahayak</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+<div class="container">
+  <div class="sidebar">
+    <h2>Campus Sahayak</h2>
+  </div>
+  <div class="chat-container">
+    <div id="chat-box"></div>
+    <div class="input-container">
+      <input id="user-input" type="text" placeholder="Type your message...">
+      <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
+<script>
+const inputBox = document.getElementById("user-input");
+const chatBox = document.getElementById("chat-box");
+const sendBtn = document.getElementById("send-btn");
+
+async function sendMessage() {
+  const message = inputBox.value.trim();
+  if (!message) return;
+
+  // Display user message
+  chatBox.innerHTML += `<div class="message user">${message}</div>`;
+  chatBox.scrollTop = chatBox.scrollHeight;
+  inputBox.value = "";
+
+  // Call backend
+  const res = await fetch("/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message })
+  });
+  const data = await res.json();
+
+  // Display bot response
+  chatBox.innerHTML += `<div class="message bot">${data.reply}</div>`;
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  inputBox.focus();
+}
+
+// Send on Enter
+inputBox.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    sendMessage();
+  }
+});
+
+// Send on button click
+sendBtn.addEventListener("click", sendMessage);
+
+// Focus input on page load
+inputBox.focus();
+</script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Sahayak - Your Smart College Assistant</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --secondary: #f59e0b;
+      --light: #f8fafc;
+      --dark: #1e293b;
+      --gray: #64748b;
+      --success: #10b981;
+      --danger: #ef4444;
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-warning: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      padding: 1rem 0;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      padding: 0.5rem 0;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--primary) !important;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      margin: 0 0.5rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background: var(--primary);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), 
+                  linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), 
+                  linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%), 
+                  linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%);
+      background-size: 50px 50px;
+      background-position: 0 0, 0 25px, 25px -25px, -25px 0px;
+      opacity: 0.1;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .feature-item i {
+      font-size: 1.25rem;
+      margin-right: 0.75rem;
+      background: rgba(255, 255, 255, 0.2);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-placeholder {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.3) 100%);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      transition: transform 0.5s ease;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-placeholder:hover {
+      transform: scale(1.02);
+    }
+
+    .hero-placeholder i {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-placeholder-content {
+      text-align: center;
+    }
+
+    /* Chat Section */
+    .chat-section {
+      padding: 100px 0;
+      background: var(--light);
+    }
+
+    .chat-container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-header {
+      background: var(--primary);
+      color: white;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-avatar {
+      display: flex;
+      align-items: center;
+    }
+
+    .chat-avatar i {
+      font-size: 2rem;
+      margin-right: 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chat-status {
+      display: flex;
+      align-items: center;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--success);
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 1.5rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: #f8fafc;
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 1rem 1.25rem;
+      border-radius: 18px;
+      position: relative;
+      animation: fadeInUp 0.5s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .bot-message {
+      align-self: flex-start;
+      background: white;
+      border-bottom-left-radius: 5px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .user-message {
+      align-self: flex-end;
+      background: var(--primary);
+      color: white;
+      border-bottom-right-radius: 5px;
+    }
+
+    .message small {
+      opacity: 0.7;
+      font-size: 0.75rem;
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    .typing-indicator {
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .typing-dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .typing-dots span {
+      width: 8px;
+      height: 8px;
+      background: var(--gray);
+      border-radius: 50%;
+      animation: typing 1.4s infinite;
+    }
+
+    .typing-dots span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-dots span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes typing {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-10px); }
+    }
+
+    .chat-input {
+      padding: 1.5rem;
+      border-top: 1px solid #e2e8f0;
+      background: white;
+    }
+
+    .suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .suggestion {
+      background: #e2e8f0;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .suggestion:hover {
+      background: #cbd5e1;
+      transform: translateY(-2px);
+    }
+
+    .language-selector {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: background 0.3s;
+    }
+
+    .lang-btn.active {
+      background: var(--secondary);
+      color: var(--dark);
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 100px 0;
+      background: white;
+    }
+
+    .accordion-button {
+      font-weight: 600;
+      padding: 1.25rem;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background: rgba(37, 99, 235, 0.05);
+      color: var(--primary);
+    }
+
+    .accordion-body {
+      padding: 1.25rem;
+      color: var(--gray);
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 100px 0;
+      background: var(--light);
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-placeholder {
+      background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+      border: 2px solid #94a3b8;
+      border-radius: 20px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #475569;
+      transition: transform 0.5s ease;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .about-placeholder:hover {
+      transform: scale(1.02);
+    }
+
+    .about-placeholder i {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-placeholder-content {
+      text-align: center;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-item h3 {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 100px 0;
+      background: white;
+    }
+
+    .contact-item {
+      padding: 2rem;
+      text-align: center;
+      background: var(--light);
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.75rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-column a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid #374151;
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .chat-container {
+        height: 500px;
+      }
+      
+      .message {
+        max-width: 90%;
+      }
+      
+      .stat-item h3 {
+        font-size: 2rem;
+      }
+    }
+
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Animation Classes */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <i class="fas fa-robot me-2"></i>
+        <span>Campus Sahayak</span>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#chat-section">Chat</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#faq-section">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about-section">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact-section">Contact</a>
+          </li>
+        </ul>
+        
+        <!-- Language Selector -->
+        <div class="dropdown me-3">
+          <button class="btn btn-outline-light dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown">
+            <i class="fas fa-globe me-1"></i>
+            <span id="current-language">English</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="hi">हिंदी</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="ta">தமிழ்</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="te">తెలుగు</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="bn">বাংলা</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="container">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-6">
+          <div class="hero-content">
+            <h1 class="animate-on-scroll">Your Intelligent College Assistant</h1>
+            <p class="animate-on-scroll">Get instant answers about admissions, courses, campus facilities, and more in your preferred language.</p>
+            <div class="hero-features mb-4">
+              <div class="feature-item animate-on-scroll">
+                <i class="fas fa-globe"></i>
+                <span>Multilingual support in 5+ languages</span>
+              </div>
+              <div class="feature-item animate-on-scroll">
+                <i class="fas fa-clock"></i>
+                <span>24/7 instant responses</span>
+              </div>
+              <div class="feature-item animate-on-scroll">
+                <i class="fas fa-book-open"></i>
+                <span>Comprehensive college information</span>
+              </div>
+              <div class="feature-item animate-on-scroll">
+                <i class="fas fa-users"></i>
+                <span>Human support when needed</span>
+              </div>
+            </div>
+            <div class="hero-buttons animate-on-scroll">
+              <a href="#chat-section" class="btn btn-light btn-lg me-3">
+                <i class="fas fa-comment-dots me-2"></i>
+                Start Chatting
+              </a>
+              <a href="#about-section" class="btn btn-outline-light btn-lg">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="hero-image text-center animate-on-scroll">
+            <div class="hero-placeholder">
+              <div class="hero-placeholder-content">
+                <i class="fas fa-university"></i>
+                <h4>Campus Sahayak</h4>
+                <p>Your digital gateway to campus life</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chat Section -->
+  <section id="chat-section" class="chat-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold text-primary mb-3 animate-on-scroll">Chat with Campus Sahayak</h2>
+        <p class="text-muted animate-on-scroll">Ask any question about college life, admissions, courses, or facilities</p>
+      </div>
+      
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="chat-container animate-on-scroll">
+            <div class="chat-header">
+              <div class="chat-avatar">
+                <i class="fas fa-robot"></i>
+                <div>
+                  <h5 class="mb-0">Campus Sahayak Bot</h5>
+                  <small class="d-flex align-items-center">
+                    <span class="status-dot me-1"></span>
+                    Online
+                  </small>
+                </div>
+              </div>
+              <div class="language-selector">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="hi">HI</button>
+                <button class="lang-btn" data-lang="ta">TA</button>
+                <button class="lang-btn" data-lang="te">TE</button>
+                <button class="lang-btn" data-lang="bn">BN</button>
+              </div>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+              <div class="message bot-message">
+                Hello! I'm Campus Sahayak, your multilingual college assistant. How can I help you today?
+                <small>Just now</small>
+              </div>
+            </div>
+            
+            <div class="suggestions">
+              <button class="suggestion" data-question="What are the eligibility criteria for B.Tech Computer Science?">B.Tech Eligibility</button>
+              <button class="suggestion" data-question="What is the last date to apply for admissions?">Application Deadline</button>
+              <button class="suggestion" data-question="How can I apply for scholarship?">Scholarship Info</button>
+              <button class="suggestion" data-question="What are the library timings?">Library Hours</button>
+              <button class="suggestion" data-question="What is the placement record?">Placement Stats</button>
+              <button class="suggestion" data-question="How do I get my student ID card?">Student ID Card</button>
+            </div>
+            
+            <div class="chat-input">
+              <div class="input-group">
+                <input type="text" class="form-control" id="userInput" placeholder="Type your message here...">
+                <button class="btn btn-primary" id="sendButton">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq-section" class="faq-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold text-primary mb-3 animate-on-scroll">Frequently Asked Questions</h2>
+        <p class="text-muted animate-on-scroll">Quick answers to common questions</p>
+      </div>
+      
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="accordion animate-on-scroll" id="faqAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                  What is Campus Sahayak?
+                </button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Campus Sahayak is an AI-powered multilingual chatbot designed to help college students and prospective students get instant answers to their questions about college life, admissions, courses, facilities, and more.
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                  Which languages are supported?
+                </button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Campus Sahayak currently supports English, Hindi, Tamil, Telugu, and Bengali. We're continuously working to add more languages to better serve our diverse student community.
+                </div>
+              </div>
+            </div>
+            
+            <!-- <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                  Can I upload documents for queries?
+                </button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes! You can upload PDF, DOC, DOCX, and TXT files to ask specific questions about documents like course syllabi, admission forms, or college policies.
+                </div>
+              </div>
+            </div> -->
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                  How do I get human support?
+                </button>
+              </h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  If the chatbot cannot answer your question or you need personalized assistance, reach out to support@campussahayak.edu
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                  Is my chat history saved?
+                </button>
+              </h2>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes, your chat history is saved locally on your device so you can refer back to previous conversations. You can also export your chat history at any time.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about-section" class="about-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="about-image animate-on-scroll">
+            <div class="about-placeholder">
+              <div class="about-placeholder-content">
+                <i class="fas fa-users"></i>
+                <h4>Student Community</h4>
+                <p>Connecting students with information</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="about-content animate-on-scroll">
+            <h2 class="fw-bold text-primary mb-4">About Campus Sahayak</h2>
+            <p class="text-muted mb-4">
+              Campus Sahayak was created to bridge the communication gap between students and college administration. Our AI-powered chatbot provides instant, accurate answers to student queries in multiple languages.
+            </p>
+            <p class="text-muted mb-4">
+              Whether you're a prospective student looking for admission information or a current student seeking help with course details, Campus Sahayak is here to assist you 24/7.
+            </p>
+            <div class="about-stats row">
+              <div class="col-md-4 text-center mb-3">
+                <div class="stat-item">
+                  <h3>5+</h3>
+                  <p class="text-muted">Languages</p>
+                </div>
+              </div>
+              <div class="col-md-4 text-center mb-3">
+                <div class="stat-item">
+                  <h3>10K+</h3>
+                  <p class="text-muted">Queries Resolved</p>
+                </div>
+              </div>
+              <div class="col-md-4 text-center mb-3">
+                <div class="stat-item">
+                  <h3>1000+</h3>
+                  <p class="text-muted">Students Helped</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact-section" class="contact-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold text-primary mb-3 animate-on-scroll">Get in Touch</h2>
+        <p class="text-muted animate-on-scroll">Have questions or feedback? We'd love to hear from you!</p>
+      </div>
+      
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="col-md-4 text-center mb-4">
+              <div class="contact-item animate-on-scroll">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <h5>Email</h5>
+                <p class="text-muted">support@campussahayak.edu</p>
+              </div>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+              <div class="contact-item animate-on-scroll">
+                <div class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <h5>Phone</h5>
+                <p class="text-muted">+1 (555) 123-4567</p>
+              </div>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+              <div class="contact-item animate-on-scroll">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h5>Address</h5>
+                <p class="text-muted">123 Campus Drive<br>University City, UC 12345</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Campus Sahayak</h3>
+          <p>Your intelligent multilingual assistant for all college-related queries.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#chat-section">Chat</a></li>
+            <li><a href="#faq-section">FAQs</a></li>
+            <li><a href="#about-section">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt me-2"></i> College Road, Academic Nagar, City</li>
+            <li><i class="fas fa-phone me-2"></i> +91 98765 43210</li>
+            <li><i class="fas fa-envelope me-2"></i> info@campussahayak.edu</li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook me-2"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter me-2"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram me-2"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin me-2"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 Campus Sahayak. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const chatMessages = document.getElementById('chatMessages');
+  const userInput = document.getElementById('userInput');
+  const sendButton = document.getElementById('sendButton');
+  const suggestions = document.querySelectorAll('.suggestion');
+  const langButtons = document.querySelectorAll('.lang-btn');
+
+  let currentLanguage = 'en';
+
+  // Add message to chat
+  function addMessage(text, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message');
+    messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+
+    const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    messageDiv.innerHTML = `
+      ${text}
+      <small>${timestamp}</small>
+    `;
+
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  // Send message to backend
+  async function sendMessage() {
+    const message = userInput.value.trim();
+    if (!message) return;
+
+    // Show user message
+    addMessage(message, 'user');
+    userInput.value = "";
+
+    try {
+      const res = await fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      });
+
+      const data = await res.json();
+
+      // Show bot reply
+      if (data.reply) {
+        addMessage(data.reply, 'bot');
+      } else {
+        addMessage("⚠️ No reply from server.", 'bot');
+      }
+    } catch (err) {
+      console.error(err);
+      addMessage("❌ Error: Could not connect to server.", 'bot');
+    }
+  }
+
+  // Event listeners
+  sendButton.addEventListener('click', sendMessage);
+  userInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // prevent newline
+      sendMessage();
+    }
+  });
+
+  // Suggestions
+  suggestions.forEach(suggestion => {
+    suggestion.addEventListener('click', function() {
+      const question = this.getAttribute('data-question');
+      userInput.value = question;
+      sendMessage();
+    });
+  });
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Scroll animations
+  function checkScroll() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      if (elementTop < windowHeight - 100) {
+        element.classList.add('animated');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkScroll);
+  window.addEventListener('load', checkScroll);
+});
+</script>
+
+</body>
+</html>

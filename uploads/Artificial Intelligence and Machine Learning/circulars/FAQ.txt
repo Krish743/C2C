@@ -1,0 +1,148 @@
+Comprehensive Institute FAQs for Student Chatbot
+
+0.basic conversation
+Q: hello
+A: Hello! How can I assist you today?
+
+Q: hi
+A: Hi there! Need help with campus info?
+
+1. Admissions & Enrollment
+Q: What are the eligibility criteria for the B.Tech in Computer Science program?
+A: To be eligible for the B.Tech in Computer Science program, a candidate must have passed their 10+2 (or equivalent) examination with Physics, Chemistry, and Mathematics as compulsory subjects, securing a minimum of [e.g., 60%] aggregate marks. They must also have a valid score in [Name of Entrance Exam, e.g., JEE Main, GUJCET].
+
+Q: What is the last date to apply for undergraduate admissions?
+A: The application portal for the upcoming academic year closes on June 15, 2026. We do not accept applications past the deadline. You can find the complete admissions timeline here: [Link to Admissions Calendar].
+
+Q: How can I apply to the institute?
+A: All applications must be submitted online through our official admissions portal: [Link to Admissions Portal]. You will need to register, fill out the application form, upload the required documents, and pay the application fee.
+
+Q: What documents are required during the application process?
+A: You will need scanned copies of your:
+10th Grade Marksheet and Certificate,
+12th Grade Marksheet and Certificate,
+Entrance Exam Scorecard ([e.g., JEE Main, CAT, GATE]),
+Government-issued Photo ID (e.g., Aadhar Card, Passport),
+Recent Passport-sized Photograph,
+Category Certificate (if applicable, e.g., SC/ST/OBC/EWS),
+
+Q: Is there an application fee? How can I pay it?
+A: Yes, there is a non-refundable application fee of ₹[Amount]. The fee can be paid online via credit card, debit card, or net banking through the application portal.
+
+Q: Does the institute have a management quota or direct admission?
+A: Our admission process is strictly based on merit and entrance exam scores. For details on specific admission categories, please refer to our official admissions brochure available at [Link to Brochure].
+
+Q: When will the merit list be declared?
+A: The first merit list for admissions will be published on our website on [Insert Date]. Please keep an eye on the "Announcements" section of our homepage.
+
+Q: What is the counseling process after the merit list is out?
+A: Shortlisted candidates will be called for online/offline counseling. During counseling, you will have to confirm your seat, get your documents verified, and pay the first-semester fees. The detailed schedule will be emailed to you and posted on the website.
+
+2. Academics & Curriculum
+Q: Where can I find the detailed syllabus for my course?
+A: The complete, updated syllabus for all programs and semesters is available on the institute's website under the "Academics" section or directly here: [Link to Syllabus Page].
+
+Q: What is the minimum attendance required to appear for exams?
+A: A minimum of [e.g., 75%] attendance in each subject (for both lectures and practicals) is mandatory to be eligible to sit for the end-semester examinations.
+
+Q: How is the CGPA (Cumulative Grade Point Average) calculated?
+A: The CGPA is the weighted average of the grade points obtained in all courses passed by the student since their admission. The detailed formula and grading system are explained in the Academic Rulebook available at [Link to Rulebook].
+
+Q: Can I change my branch/major after the first year?
+A: A limited number of students may be allowed to change their branch after the first year based on exceptional academic performance (CGPA). The policy is subject to seat availability in the desired branch. Details can be found in the student handbook.
+
+Q: Where can I find the academic calendar for the current year?
+A: The academic calendar, which includes dates for registration, mid-semester exams, end-semester exams, and holidays, is available here: [Link to Academic Calendar].
+
+Q: Who is my faculty advisor/mentor?
+A: Each student is assigned a faculty advisor at the beginning of the first year. You can find the name and contact details of your advisor in the student portal: [Link to Student Portal].
+
+Q: What is the procedure for re-evaluation or checking of exam papers?
+A: Students who wish to apply for re-evaluation of their answer sheets can do so by filling out the prescribed form and paying the fee within [e.g., 7 days] of the result declaration. The form is available at the Examination Cell office.
+
+Q: Are there any minor or honors programs available?
+A: Yes, the institute offers several minor and honors programs for students who wish to specialize in an area outside their major. You can find the list of programs and eligibility criteria here: [Link to Minor/Honors Programs].
+
+3. Fees & Financials
+Q: What is the detailed fee structure for the MBA program?
+A: The complete fee structure, including tuition fees, lab fees, exam fees, and other charges, is available on our website: [Link to Fee Structure Page].
+
+Q: What are the different ways I can pay my semester fees?
+A: Fees can be paid online through the student portal using net banking, debit/credit cards, or UPI. Alternatively, you can pay via a Demand Draft in favor of "[Institute Name]" payable at "[City]".
+
+Q: Is there any scholarship available for meritorious students?
+A: Yes, the institute offers several merit-based scholarships. The "Merit-cum-Means" scholarship is available for students with a strong academic record and a family income below a certain threshold. Details and application forms are available here: [Link to Scholarships].
+
+Q: Do you provide assistance for educational loans?
+A: The institute is registered with major national banks. We provide all necessary documentation (like Bonafide certificates, fee structure letters) required by banks for processing educational loans. Contact the Student Affairs office for assistance.
+
+Q: What is the fee refund policy if I withdraw my admission?
+A: The fee refund policy is in accordance with the guidelines set by UGC/AICTE. The amount of refund depends on how soon you apply for withdrawal after admission. The detailed policy is available here: [Link to Refund Policy].
+
+Q: Is there a fine for late payment of fees?
+A: Yes, a late fee of ₹[Amount] per day is charged for payments made after the due date. The due dates for fee payment are mentioned in the academic calendar.
+
+4. Campus Life & Facilities
+Q: Is hostel accommodation available for all students?
+A: We provide hostel accommodation for out-station students. Allotment is based on a first-come, first-served basis. Due to limited capacity, we cannot guarantee a room for every applicant.
+
+Q: How do I apply for a hostel room?
+A: The application for hostel accommodation is a separate process from the main admission application. You can apply through the hostel portal here: [Link to Hostel Portal]. The portal opens after the admission lists are finalized.
+
+Q: What facilities are available in the hostel?
+A: Our hostels are equipped with Wi-Fi, 24/7 security, a common room with TV, recreational facilities, and hot water. Mess facilities are included in the hostel fee.
+
+Q: What are the library timings?
+A: The Central Library is open from 9:00 AM to 8:00 PM on weekdays and 10:00 AM to 4:00 PM on Saturdays. It remains closed on Sundays and public holidays.
+
+Q: How many books can I issue from the library at a time?
+A: Undergraduate students can issue up to 4 books for a period of 14 days. Postgraduate students can issue up to 6 books.
+
+Q: What sports facilities are available on campus?
+A: The campus has facilities for cricket, football, basketball, volleyball, badminton, and table tennis. We also have a fully-equipped gymnasium.
+
+Q: Are there student clubs on campus? How can I join one?
+A: Yes, we have over 30 active student clubs covering technical, cultural, and social interests. A club recruitment drive is held at the beginning of each academic year where you can learn about and join the clubs.
+
+Q: Is there Wi-Fi on campus? How can I get access?
+A: The entire campus, including academic blocks, library, and hostels, is Wi-Fi enabled. You can log in using your student ID and password provided upon registration.
+
+5. Placements & Career Services
+Q: What is the placement record of the institute?
+A: The institute has a consistent placement record with an average of [e.g., 85%] of eligible students getting placed each year. You can find detailed statistics, including average and highest packages, on our placement portal: [Link to Placement Statistics].
+
+Q: Which companies visit the campus for recruitment?
+A: We have strong ties with top companies in various sectors. Some of our regular recruiters include [e.g., TCS, Infosys, Wipro, L&T, Adani Group, Amazon, Google]. A more comprehensive list is available on our placement page.
+
+Q: Does the institute provide internship assistance?
+A: Yes, the Training & Placement (T&P) Cell actively helps students find summer and winter internships. They regularly share opportunities and facilitate the application process.
+
+Q: What kind of training does the placement cell provide?
+A: The T&P Cell conducts regular workshops on resume building, group discussions, personal interviews, and aptitude test preparation. They also organize mock interview sessions with industry experts.
+
+Q: What is the eligibility criteria to sit for campus placements?
+A: To be eligible for campus placements, students must typically have:
+
+A minimum CGPA of 6.5.
+
+No active backlogs.
+
+Minimum 75% attendance.
+
+Some companies may have additional specific criteria.
+
+6. Administration & Support
+Q: How can I get my student ID card?
+A: Student ID cards are issued within the first week of the commencement of the first semester. You will be notified of the schedule for photographs and card collection by the Student Affairs office.
+
+Q: What is the procedure to get a Bonafide certificate or transcript?
+A: You need to fill out a request form available at the administrative office or on the student portal. The document will be ready for collection within [e.g., 3-5] working days.
+
+Q: Who should I contact in case of a medical emergency on campus?
+A: The institute has a health center with a doctor on duty during college hours. For after-hours emergencies, contact the hostel warden or campus security at [Emergency Contact Number].
+
+Q: What is the institute's policy on ragging?
+A: The institute has a zero-tolerance policy towards ragging. It is a criminal offense, and any student found guilty will be subject to strict disciplinary action, including expulsion. We have an active Anti-Ragging Committee and Squad.
+
+Q: I am facing some personal/academic stress. Is there a counseling service?
+A: Yes, we have a professional student counselor on campus to provide confidential support for academic, personal, and emotional issues. You can book an appointment by emailing [counselor@institute.ac.in].
