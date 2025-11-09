@@ -1,5 +1,4 @@
-# SIH
-sih basic prototype
+#C2C
 
 to run:
 uvicorn app:app --reload
